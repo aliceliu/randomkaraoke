@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RANDOM KARAOKE</title>
+	<link rel="stylesheet" href="static/css/bootstrap.min.css">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<script type="text/javascript">	    
+        function insertVideo(){
+	    document.getElementById('empty').innerHTML = '<iframe id="video" width="560" height="315" src="http://www.youtube.com/embed/{{original_song}}" frameborder="0" allowfullscreen></iframe>';
+        }
+        
+    </script>
+	
+</head>
+<body>
+    
+	<h1 align=center>RANDOM KARAOKE</h1>
+    <form>
+        <input align="center" type="text" name="choice">
+        <input id = "submit" align="center" class="btn" type="submit" value="Submit">
+        <button class="btn" value='Watch Original' type="submit" name='button' onclick="insertVideo()"> Watch Original </button>
+    </form>
+
+    <div id="empty">
+    
+    <iframe id="video" width="560" height="315" src="http://www.youtube.com/embed/{{song}}" frameborder="0" allowfullscreen></iframe>
+        <div class="well">
+            <img src="static/img/left.jpg"/><a href="/" onClick=""><img src="static/img/right.jpg"/></a>
+        </div>
+    
+    </div>
+    
+    
+   
+        
+    </div>
+
+    
+    
+    
+
+</body>
+</html>
