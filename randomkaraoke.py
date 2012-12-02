@@ -4,9 +4,8 @@ related = []
 
 
 
-
+base_link = 'http://gdata.youtube.com/feeds/api/videos?q='
 def get_song(song, original=False):
-    base_link = 'http://gdata.youtube.com/feeds/api/videos?q='
     song = song.replace(' ', '+')
     if original:
         url = base_link + song
