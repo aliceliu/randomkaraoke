@@ -24,19 +24,22 @@ jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.di
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        song = self.request.get("search_song")
-        logging.info(song)
-        video_id = get_song(song)
-        related_song = get_related_song(base_song)
-        template=jinja_environment.get_template("home.html")
+        #song = self.request.get("search_song")
+        choice = self.request.get("choice")
+        #video_id = get_song(song)
+        #related_song = get_related_song(base_song)
+       
         template_values = {
-                          'song': song,
-                          'video_id': video_id,
-                          'related_song': related_song
+                          #'song': 'awfbwao',
+                          #'video_id': video_id,
+                          #'related_song': related_song
+                          'choice': choice
         }
+        template=jinja_environment.get_template("home.html")
         html = template.render(template_values)
         self.response.out.write(html)
-    
+        
+        
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
