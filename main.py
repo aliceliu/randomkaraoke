@@ -31,10 +31,18 @@ class MainHandler(webapp2.RequestHandler):
         related_song = get_related_song('http://www.youtube.com/watch?v=' + song)
        
         template_values = {
+                          'choice': choice,
                           'song': song,
                           'original_song': original_song,
                           'related_song': related_song
         }
+        template = jinja_environment.get_template("karaoke.html")
+        self.response.out.write(template.render(template_values))
+        
+class MainHandler(webapp2.RequestHandler):
+    def get(self):
+        choice = self.request.get("choice")
+        template_values = {}
         template = jinja_environment.get_template("home.html")
         self.response.out.write(template.render(template_values))
         
@@ -42,6 +50,7 @@ class MainHandler(webapp2.RequestHandler):
 
 routes=[
   ('/', MainHandler),
+  ('/sing', KaraokeHandler)
 ]
 app = webapp2.WSGIApplication(routes,
                               debug=True)
