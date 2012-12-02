@@ -9,6 +9,10 @@
 	    document.getElementById('empty').innerHTML = '<iframe id="video" width="560" height="315" src="http://www.youtube.com/embed/{{original_song}}" frameborder="0" allowfullscreen></iframe>';
         }
         
+        function changeVideo() {
+        document.getElementById('video').innerHTML = '<iframe id="video" width="560" height="315" src="http://www.youtube.com/embed/{{related_song}}" frameborder="0" allowfullscreen></iframe>';
+        }
+        
     </script>
 	
 </head>
@@ -20,14 +24,15 @@
         <input id = "submit" align="center" class="btn" type="submit" value="Submit">
     </form>
 
-    
+    <div id="video">
     <iframe id="video" width="560" height="315" src="http://www.youtube.com/embed/{{song}}" frameborder="0" allowfullscreen></iframe>
+    </div>
     
     <div id="empty">
     </div>
     
     <div class="well">
-        <img src="static/img/left.jpg"/><a href="/" onClick=""><img src="static/img/right.jpg"/></a>
+        <img src="static/img/left.jpg"/><a href="{{related_song}}" onClick=""><img src="static/img/right.jpg"/></a>
     </div>
     
     <button class="btn" value='Watch Original' type="submit" name='button' onclick="insertVideo()"> Watch Original </button>

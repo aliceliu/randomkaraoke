@@ -18,11 +18,19 @@ def get_song(song, original=False):
     
     return page
     
+"""def get_related_song(page):
+    html = urllib2.urlopen(page).read()
+    soup = BeautifulSoup(html)
+    link = str(soup.select(".video-list-item")[5])
+    link = link[link.find('title'):].split('"')[1]
+    return link"""
+    
 def get_related_song(page):
     html = urllib2.urlopen(page).read()
     soup = BeautifulSoup(html)
     link = str(soup.select(".video-list-item")[5])
-    link = link[link.find('href'):].split('"')[1]
+    link = link[link.find('class="title"'):]
+    link = link[link.find('title'):].split("=")[2].split(" -")[0].strip('"')
     return link
     
     
