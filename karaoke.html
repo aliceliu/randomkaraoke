@@ -4,11 +4,26 @@
 	<title>RANDOM KARAOKE</title>
 	<link rel="stylesheet" href="static/css/bootstrap.min.css">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-	<script type="text/javascript">	    
+	<script type="text/javascript">
         function insertVideo(){
 	    document.getElementById('empty').innerHTML = '<iframe id="video" width="560" height="315" src="http://www.youtube.com/embed/{{original_song}}" frameborder="0" allowfullscreen></iframe>';
         }
-        
+
+    document.onkeyup = KeyCheck; 
+    document.onk 
+    function KeyCheck() 
+    {
+        var KeyID = event.keyCode; 
+    if(KeyID==37 ) 
+    { 
+        alert('left'); 
+    } 
+    if(KeyID==39) 
+    { 
+        alert('right'); 
+    } 
+}
+
     </script>
 	
 </head>
