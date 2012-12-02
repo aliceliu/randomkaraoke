@@ -25,14 +25,15 @@ jinja_environment = jinja2.Environment(
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        song = get_song(self.request.get("choice"))
-        #related_song = get_related_song(base_song)
+        choice = self.request.get("song")
+        song = get_song(choice)
+        original_song = get_song(choice, original=True)
+        #related_song = get_related_song(song)
        
         template_values = {
-                          #'song': song,
-                          #'video_id': choice,
-                          #'related_song': related_song,
-                          'song': song
+                          'song': song,
+                          'original_song': original_song,
+                          #'related_song': related_song
         }
         template = jinja_environment.get_template("home.html")
         self.response.out.write(template.render(template_values))
