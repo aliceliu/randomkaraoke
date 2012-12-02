@@ -5,55 +5,71 @@
 	<link rel="stylesheet" href="static/css/bootstrap.min.css">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 	<script type="text/javascript">
+	
         function insertVideo(){
+       
 	    document.getElementById('empty').innerHTML = '<iframe id="video" width="560" height="315" src="http://www.youtube.com/embed/{{original_song}}" frameborder="0" allowfullscreen></iframe>';
         }        
-        function changeVideo() {
-        document.getElementById('video').innerHTML = '<iframe id="video" width="560" height="315" src="http://www.youtube.com/embed/{{related_song}}" frameborder="0" allowfullscreen></iframe>';
+        
+    
+        document.onkeyup = KeyCheck; 
+        document.onk 
+        function KeyCheck(){
+            var KeyID = event.keyCode; 
+            if(KeyID==39){ 
+                window.location=('/sing?choice={{related_song}}'); 
+            } 
         }
-
-
-    document.onkeyup = KeyCheck; 
-    document.onk 
-    function KeyCheck() 
-    {
-        var KeyID = event.keyCode; 
-    if(KeyID==37 ) 
-    { 
-        alert('left'); 
-    } 
-    if(KeyID==39) 
-    { 
-        changeVideo(); 
-    } 
-}
-
-
     </script>
+    <style>
+        
+        #video {
+        border-left: 5px solid white;
+        }
+        
+        #empty {
+        border-left: 5px solid white;
+        }
+        
+    </style>
+    
 	
 </head>
 <body>
-    
+    <div align="center">
 	<h1 align=center>RANDOM KARAOKE</h1>
     <form>
         <input align="center" type="text" name="choice">
         <input id = "submit" align="center" class="btn" type="submit" value="Submit">
     </form>
+    </div>
 
-    <div id="video">
-    <iframe id="video" width="560" height="315" src="http://www.youtube.com/embed/{{song}}" frameborder="0" allowfullscreen></iframe>
+    <div>
+        
+        <iframe align="left" id="video" width="560" height="315" src="http://www.youtube.com/embed/{{song}}" frameborder="0" allowfullscreen></iframe>
+        <span id="empty" align="right">
+        </span>
     </div>
     
-    <div id="empty">
+  
+    <div align="center">
+    <button class="btn" value='Watch Original' type="submit" name='watch' onclick="insertVideo()"> Watch Original </button>
     </div>
     
-    <div class="well">
-        <img src="static/img/left.jpg"/><a href="{{related_song}}" onClick=""><img src="static/img/right.jpg"/></a>
+    
+    <div id="original" align="center"> 
+    <a href='/sing?choice={{related_song}}'><img src="static/img/right.jpg"/> Next </a> 
     </div>
     
-    <button class="btn" value='Watch Original' type="submit" name='button' onclick="insertVideo()"> Watch Original </button>
     
     
+    <div>
+    
+
+    
+
+    
+   
     
     
 
