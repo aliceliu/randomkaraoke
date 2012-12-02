@@ -20,28 +20,29 @@ import os
 import logging
 from randomkaraoke import *
 
-jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
+jinja_environment = jinja2.Environment(
+    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        #song = self.request.get("search_song")
-        choice = self.request.get("choice")
-        #video_id = get_song(song)
+        song = get_song(self.request.get("song"))
         #related_song = get_related_song(base_song)
        
         template_values = {
-                          #'song': 'awfbwao',
-                          #'video_id': video_id,
-                          #'related_song': related_song
-                          'choice': choice
+                          #'song': song,
+                          #'video_id': choice,
+                          #'related_song': related_song,
+                          'song': song
         }
-        template=jinja_environment.get_template("home.html")
-        html = template.render(template_values)
-        self.response.out.write(html)
+        template = jinja_environment.get_template("home.html")
+        self.response.out.write(template.render(template_values))
         
-        
+      
 
-app = webapp2.WSGIApplication([
-    ('/', MainHandler)
-], debug=True)
+routes=[
+  ('/', MainHandler),
+]
+app = webapp2.WSGIApplication(routes,
+                              debug=True)
+
 
