@@ -15,25 +15,23 @@
 <body>
     
 	<h1 align=center>RANDOM KARAOKE</h1>
-    <form action="/sing?">
+    <form>
         <input align="center" type="text" name="choice">
         <input id = "submit" align="center" class="btn" type="submit" value="Submit">
-        <button class="btn" value='Watch Original' type="submit" name='button' onclick="insertVideo()"> Watch Original </button>
     </form>
 
-    <div id="empty">
+    
     <iframe id="video" width="560" height="315" src="http://www.youtube.com/embed/{{song}}" frameborder="0" allowfullscreen></iframe>
-        <div class="well">
-            <img src="static/img/left.jpg"/><a href="/" onClick=""><img src="static/img/right.jpg"/></a>
-        </div>
     
+    <div id="empty">
     </div>
     
-    
-   
-        
+    <div class="well">
+        <img src="static/img/left.jpg"/><a href="/" onClick=""><img src="static/img/right.jpg"/></a>
     </div>
-
+    
+    <button class="btn" value='Watch Original' type="submit" name='button' onclick="insertVideo()"> Watch Original </button>
+    
     
     
     
