@@ -20,6 +20,23 @@
                 window.location=('/sing?choice={{related_song}}'); 
             } 
         }
+
+    document.onkeyup = KeyCheck; 
+    document.onk;
+    function KeyCheck() 
+    {
+        var KeyID = event.keyCode; 
+    if(KeyID==37 ) 
+    { 
+        // Left!
+    } 
+    if(KeyID==39) 
+    { 
+        changeVideo(); 
+    } 
+}
+
+
     </script>
     <style>
         
@@ -44,11 +61,16 @@
     </form>
     </div>
 
+<<<<<<< HEAD
     <div>
         
         <iframe align="left" id="video" width="560" height="315" src="http://www.youtube.com/embed/{{song}}" frameborder="0" allowfullscreen></iframe>
         <span id="empty" align="right">
         </span>
+=======
+    <div id="video">
+    <iframe id="video" width="560" height="315" src="http://www.youtube.com/embed/{{song}}&amp;autoplay=1" frameborder="0" allowfullscreen></iframe>
+>>>>>>> 12029a7ddf771dd4dd5210495d4394a7dda33b5e
     </div>
     
   
