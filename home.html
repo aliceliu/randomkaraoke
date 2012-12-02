@@ -6,12 +6,19 @@
 	
 </head>
 <body>
-	<h1>ENTER A RANDOM SONG</h1>
-	<form class="navbar-form pull-left" method="get">
+    <div>
+	<h1 align=center>RANDOM KARAOKE</h1>
+	<form align=center class="navbar-form" method="get" action="/">
         <input type="text" name="search_song" class="span2">
-        <button type="submit" value="search_song" class="btn" >Submit</button>
+        <input type="submit" value="Submit">
     </form>
+    
+    </div>
+    <h2>{{song}}</h2>
+    <div align=center>
+    <iframe width="560" height="315" src="http://www.youtube.com/embed/j3iq_6wd13s" frameborder="0" allowfullscreen></iframe>
+    </div>
+    
     <i class="icon-circle-arrow-right">
-    <iframe width="560" height="315" src="http://www.youtube.com/embed/{{video_id}}" frameborder="0" allowfullscreen></iframe>
 </body>
 </html>
