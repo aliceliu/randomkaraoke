@@ -7,14 +7,11 @@
 	<script type="text/javascript">
         function insertVideo(){
 	    document.getElementById('empty').innerHTML = '<iframe id="video" width="560" height="315" src="http://www.youtube.com/embed/{{original_song}}" frameborder="0" allowfullscreen></iframe>';
-        }
-<<<<<<< HEAD
-        
+        }        
         function changeVideo() {
         document.getElementById('video').innerHTML = '<iframe id="video" width="560" height="315" src="http://www.youtube.com/embed/{{related_song}}" frameborder="0" allowfullscreen></iframe>';
         }
-        
-=======
+
 
     document.onkeyup = KeyCheck; 
     document.onk 
@@ -27,11 +24,11 @@
     } 
     if(KeyID==39) 
     { 
-        alert('right'); 
+        changeVideo(); 
     } 
 }
 
->>>>>>> 24464b6455b2dfe917480f8f293c41f8c523bf4d
+
     </script>
 	
 </head>
