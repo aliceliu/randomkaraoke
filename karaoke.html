@@ -14,13 +14,13 @@
 
 
     document.onkeyup = KeyCheck; 
-    document.onk 
+    document.onk;
     function KeyCheck() 
     {
         var KeyID = event.keyCode; 
     if(KeyID==37 ) 
     { 
-        alert('left'); 
+        // Left!
     } 
     if(KeyID==39) 
     { 
@@ -41,7 +41,7 @@
     </form>
 
     <div id="video">
-    <iframe id="video" width="560" height="315" src="http://www.youtube.com/embed/{{song}}" frameborder="0" allowfullscreen></iframe>
+    <iframe id="video" width="560" height="315" src="http://www.youtube.com/embed/{{song}}&amp;autoplay=1" frameborder="0" allowfullscreen></iframe>
     </div>
     
     <div id="empty">
