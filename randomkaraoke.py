@@ -1,11 +1,24 @@
+from bs4 import BeautifulSoup
+import urllib, urllib2
 related = []
 
 
 base_link = 'http://gdata.youtube.com/feeds/api/videos?q='
 
-def get_page(song):
+def get_song(song):
     song = song.replace(' ', '+')
     url = base_link + song + '+karaoke'
     html = urllib2.urlopen(url).read()
-def get_links(page):
-    vid_id = 
+    html = html[html.find('entry'):]
+    html = html[html.find('link rel='):]
+    page = html.split("'")[5]
+    return page
+    
+def get_related_song(page):
+    html = urllib2.urlopen(page).read()
+    soup = BeautifulSoup(html)
+    link = str(soup.select(".video-list-item")[5])
+    link = link[link.find('href'):].split('"')[1]
+    return 'https://www.youtube.com' + link
+    
+    

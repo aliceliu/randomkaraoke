@@ -18,13 +18,20 @@ import webapp2
 import jinja2
 import os
 import logging
+import randomkaraoke
 
 jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
+        song = self.request.get("search_song")
+        base_song = get_song(song)
+        related_song = get_related_song(base_song)
         template=jinja_environment.get_template("home.html")
-        template_values = {}
+        template_values = {
+                          'base_song': base_song
+                          'related_song': related_song
+        }
         html = template.render(template_values)
         self.response.out.write(html)
     
