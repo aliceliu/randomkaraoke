@@ -25,7 +25,7 @@ jinja_environment = jinja2.Environment(
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        song = get_song(self.request.get("song"))
+        song = get_song(self.request.get("choice"))
         #related_song = get_related_song(base_song)
        
         template_values = {

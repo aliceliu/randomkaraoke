@@ -4,9 +4,9 @@ related = []
 
 
 
-
+base_link = 'http://gdata.youtube.com/feeds/api/videos?q='
 def get_song(song):
-    base_link = 'http://gdata.youtube.com/feeds/api/videos?q='
+    
     song = song.replace(' ', '+')
     url = base_link + song + '+karaoke'
     html = urllib2.urlopen(url).read()
