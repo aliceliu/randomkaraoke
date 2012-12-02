@@ -11,7 +11,8 @@ def get_song(song):
     html = urllib2.urlopen(url).read()
     html = html[html.find('entry'):]
     html = html[html.find('link rel='):]
-    page = html.split("'")[5]
+    page = html.split("'")[5].split('&')[0][31:]
+    
     return page
     
 def get_related_song(page):
@@ -19,6 +20,6 @@ def get_related_song(page):
     soup = BeautifulSoup(html)
     link = str(soup.select(".video-list-item")[5])
     link = link[link.find('href'):].split('"')[1]
-    return 'https://www.youtube.com' + link
+    return link
     
     
