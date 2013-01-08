@@ -7,13 +7,13 @@
 	<script type="text/javascript">
 	
         function insertVideo(){
-       
-	    document.getElementById('empty').innerHTML = '<iframe id="video" width="560" height="315" src="http://www.youtube.com/embed/{{original_song}}" frameborder="0" allowfullscreen></iframe>';
-        }        
+        	$('#watch').hide();
+	    	document.getElementById('empty').innerHTML = '<iframe id="video" width="560" height="315" src="http://www.youtube.com/embed/{{original_song}}" frameborder="0" allowfullscreen></iframe>';
+        };      
         
     
         document.onkeyup = KeyCheck; 
-        document.onk 
+        document.onk;
         function KeyCheck(){
             var KeyID = event.keyCode; 
             if(KeyID==39){ 
@@ -21,33 +21,22 @@
             } 
         }
 
-    document.onkeyup = KeyCheck; 
-    document.onk;
-    function KeyCheck() 
-    {
-        var KeyID = event.keyCode; 
-    if(KeyID==37 ) 
-    { 
-        // Left!
-    } 
-    if(KeyID==39) 
-    { 
-        changeVideo(); 
-    } 
-}
-
-
     </script>
     <style>
-        
         #video {
-        border-left: 5px solid white;
+          margin-left: 100px;
         }
-        
-        #empty {
-        border-left: 5px solid white;
+        #watch {
+          position: relative;
+          top: 100px;
+          left: 200px
         }
-        
+	    #foot {
+          position: relative;
+          top: 50px;
+          text-align: center;
+        }
+      
     </style>
     
 	
@@ -57,35 +46,32 @@
 	<h1 align=center>RANDOM KARAOKE</h1>
     <form>
         <input align="center" type="text" name="choice">
-        <input id = "submit" align="center" class="btn" type="submit" value="Submit">
+        <input id = "submit" align="center" class="btn" type="submit" value="Enter song!">
     </form>
     </div>
+    
+    
 
-<<<<<<< HEAD
-    <div>
-        
-        <iframe align="left" id="video" width="560" height="315" src="http://www.youtube.com/embed/{{song}}" frameborder="0" allowfullscreen></iframe>
-        <span id="empty" align="right">
-        </span>
-=======
-    <div id="video">
-    <iframe id="video" width="560" height="315" src="http://www.youtube.com/embed/{{song}}&amp;autoplay=1" frameborder="0" allowfullscreen></iframe>
->>>>>>> 12029a7ddf771dd4dd5210495d4394a7dda33b5e
+    <div class="row-fluid">
+    	<span class="span5">
+      		<iframe align="left" id="video" width="560" height="315" src="http://www.youtube.com/embed/{{song}}" frameborder="0" allowfullscreen></iframe>
+    	</span>
+    	<span class="span5">
+    	    <div id="empty"></div>
+      		<button class="btn" value='Watch Original' type="submit" id='watch' onclick="insertVideo()"> Watch Original </button>
+    	</span>
+  	</div>
+
+	
+	<div id="original" align="center"> 
+		<a href='/sing?choice={{related_song}}'><img src="static/img/right.jpg"/> Next </a> 
     </div>
     
-  
-    <div align="center">
-    <button class="btn" value='Watch Original' type="submit" name='watch' onclick="insertVideo()"> Watch Original </button>
+    <div id="foot">
+    	<p>If you liked this app, check out <a href="http://www.random-dancing.appspot.com/">RANDOM DANCING</a>!<p>
+    	<p><a href="https://github.com/aliceliu/randomkaraoke">Github</a></p>
+    	
     </div>
-    
-    
-    <div id="original" align="center"> 
-    <a href='/sing?choice={{related_song}}'><img src="static/img/right.jpg"/> Next </a> 
-    </div>
-    
-    
-    
-    <div>
     
 
     

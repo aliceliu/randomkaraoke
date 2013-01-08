@@ -35,6 +35,8 @@ class MainHandler(webapp2.RequestHandler):
 class KaraokeHandler(webapp2.RequestHandler):
     def get(self):
         choice = self.request.get("choice")
+        if not choice:
+            choice = 'never gonna give you up'
         song = get_song(choice)
         original_song = get_song(choice, original=True)
         related_song = get_related_song('http://www.youtube.com/watch?v=' + song)
