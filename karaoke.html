@@ -8,7 +8,8 @@
 	
         function insertVideo(){
         	$('#watch').hide();
-	    	document.getElementById('empty').innerHTML = '<iframe id="video" width="560" height="315" src="http://www.youtube.com/embed/{{original_song}}" frameborder="0" allowfullscreen></iframe>';
+	    	document.getElementById('empty').innerHTML = '<iframe id="video" width="560" height="315" src="http://www.youtube.com/embed/{{original_song}}?autoplay=1&origin=http://http://random-karaoke.appspot.com" frameborder="0" allowfullscreen></iframe>';
+	    	return false;
         };      
         
     
@@ -24,7 +25,7 @@
     </script>
     <style>
         #video {
-          margin-left: 100px;
+          margin-left: 80px;
         }
         #watch {
           position: relative;
@@ -35,6 +36,9 @@
           position: relative;
           top: 50px;
           text-align: center;
+        }
+        #empty {
+          margin-left: 20px;
         }
       
     </style>
@@ -54,6 +58,7 @@
 
     <div class="row-fluid">
     	<span class="span5">
+    	
       		<iframe align="left" id="video" width="560" height="315" src="http://www.youtube.com/embed/{{song}}" frameborder="0" allowfullscreen></iframe>
     	</span>
     	<span class="span5">

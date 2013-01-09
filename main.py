@@ -40,11 +40,11 @@ class KaraokeHandler(webapp2.RequestHandler):
         while True:
             try:
                 song = get_song(choice)
+                original_song = get_song(choice, original=True)
+                related_song = get_related_song('http://www.youtube.com/watch?v=' + song)
                 break
             except:
                 pass
-        original_song = get_song(choice, original=True)
-        related_song = get_related_song('http://www.youtube.com/watch?v=' + song)
        
         template_values = {
                           'choice': choice,

@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-import urllib, urllib2
+import urllib2, urllib
 import random
 
 base_link = 'http://gdata.youtube.com/feeds/api/videos?q='
@@ -18,38 +18,21 @@ def get_song(song, original=False):
     except:
         page = 'sTE9s43rdT8'
     return page
-    
-"""def get_related_song(page):
-    html = urllib2.urlopen(page).read()
-    soup = BeautifulSoup(html)
-    link = str(soup.select(".video-list-item")[4])
-    link = link[link.find('href='):].split('>')[0][15:-1]
-    return link"""
-    
-"""def get_related_song(page):
-    html = urllib2.urlopen(page).read()
-    soup = BeautifulSoup(html)
-    link = str(soup.select(".video-list-item")[random.randint(0, 11)])
-    link = link[link.find('class="title"'):]
-    link = link[link.find('title'):].split("=")[2].split(" -")[0].strip('"').replace("'", "")
-    if len(link) > 20:
-        link = link[:21]
-    return link.replace(' ', '+')"""
 
 def get_related_song(page):
     html = urllib2.urlopen(page).read()
     soup = BeautifulSoup(html)
+    related_vids = soup.find(id="watch-related").find_all('a', 'related-video')
     try:
-        link = str(soup.select(".video-list-item")[random.randint(0, 11)])
+        link = related_vids[random.randint(1, 11)]
     except:
-        link = 'to make you feel my love'
-    try:
-        link = link[link.find('class="title"'):]
-        link = link[link.find('title'):].split("=")[2].split(" -")[0].strip('"').replace("'", "")
-        if len(link) > 20:
-            link = link[:21]
-        return link
-    except:
-        link = 'i will always love you'
-    
+        return 'call me maybe'
+    song = str(link.find('span', 'title')).split('title=')[1]
+    if len(song) > 20:
+        song = song[:21]
+    if 'karaoke' in song.lower():
+        index = song.lower().find('karaoke')
+        song = song[:index] + song[index+7:]
+    #song = 'to make you feel my love'
+    return song
     
