@@ -44,14 +44,21 @@
         #original {
           text-align: center;
         }
-        
+        #watch {
+          position: relative;
+          left: 150px;
+          top: 150px;
+        }
         
     </style>
     
 	
 </head>
 <body>
-    <iframe id="like" src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Frandom-karaoke.appspot.com%2F&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;font&amp;colorscheme=light&amp;action=like&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:20px;" allowTransparency="true"></iframe>
+    <div id="like">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://random-dancing.appspot.com/" data-text="Check this out!" data-via="alicejliu">Tweet</a>
+        <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Frandom-karaoke.appspot.com%2F&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;font&amp;colorscheme=light&amp;action=like&amp;height=10" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:25px;" allowTransparency="true"></iframe>
+	</div>
 	<h1>RANDOM KARAOKE</h1>
     <form id="form">
         <input type="text" name="choice">
@@ -78,16 +85,10 @@
     
     <div id="foot">
     	<p>If you liked this app, check out <a href="http://www.random-dancing.appspot.com/">RANDOM DANCING</a>!<p>
-    	<p><a href="https://github.com/aliceliu/randomkaraoke">Github</a></p>
-    	
+    	<p><a href="https://github.com/aliceliu/randomkaraoke">Github</a></p>	
     </div>
     
-
-    
-
-    
-   
-    
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     
 
 </body>
