@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-import urllib2, urllib
+import urllib2
 import random
 
 base_link = 'http://gdata.youtube.com/feeds/api/videos?q='
@@ -26,13 +26,11 @@ def get_related_song(page):
     try:
         link = related_vids[random.randint(1, 11)]
     except:
-        return 'call me maybe'
-    song = str(link.find('span', 'title')).split('title=')[1]
+        return random.choice(['call me maybe', 'to make you feel my love', 'my heart will go on'])
+    song = str(link.find('span', 'title')).split('title=')[1].replace('0xe2', '').encode('utf-8')
+    i = song.find('>')
+    song = song[1:i].lower().replace('karaoke', '').replace('()','')
     if len(song) > 20:
-        song = song[:21]
-    if 'karaoke' in song.lower():
-        index = song.lower().find('karaoke')
-        song = song[:index] + song[index+7:]
-    #song = 'to make you feel my love'
+        return song[:21]
     return song
     

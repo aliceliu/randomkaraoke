@@ -37,19 +37,24 @@ class KaraokeHandler(webapp2.RequestHandler):
         choice = self.request.get("choice")
         if not choice:
             choice = 'never gonna give you up'
+        song = choice + ' karaoke'
+
+        trial = 0
         while True:
             try:
-                song = get_song(choice)
+                song_id = get_song(choice)
                 original_song = get_song(choice, original=True)
-                related_song = get_related_song('http://www.youtube.com/watch?v=' + song)
+                related_song = get_related_song('https://www.youtube.com/watch?v=' + song_id)
                 break
             except:
                 pass
+        
        
         template_values = {
                           'choice': choice,
                           'song': song,
                           'original_song': original_song,
+                          'song_id': song_id,
                           'related_song': related_song
         }
         template = jinja_environment.get_template("karaoke.html")
