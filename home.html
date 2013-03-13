@@ -4,10 +4,47 @@
     <meta charset="UTF-8">
 	<title>RANDOM KARAOKE</title>
 	<link rel="stylesheet" href="static/css/bootstrap.min.css">
+	<style>
+	    canvas {
+	        z-index = -1;
+	    }
+	    #wrap {
+	        position: absolute;
+	        top: 0;
+	        z-index = 20;
+	    }
+
+	</style>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<script>
+	    var canvas;
+	    var ctx;
+	    
+        function Main() {
+            var y = $(window).height()/3;
+            var x = $(window).width()/10;
+            $('#wrap').css({top: y, left: x});
+            canvas = document.createElement('canvas');
+			ctx = canvas.getContext('2d');
+			
+			canvas.width = $(window).width();
+			canvas.height = $(window).height();
+            var img = new Image();
+            function drawBackground() {
+            	ctx.drawImage(img, 0, 0, $(window).width(), $(window).height());
+            }
+			img.onload = drawBackground;
+        	img.src = "http://images4.fanpop.com/image/photos/20500000/AWESOME-3-singing-20512817-693-693.jpg";
+        	$('body').append(canvas);
+        };
+        
+        $(document).ready(Main);
+	</script>
 	
 
 </head>
 <body>
+    <center><div id="wrap">
  	<h1 align="center">RANDOM KARAOKE</h1>
  	<div align="center">
     <form action="/sing?choice={{choice}}">
@@ -15,6 +52,7 @@
         <input id = "submit" align="center" class="btn" type="submit" value="Enter song!">
     </form>
     </div>
+    </div></center>
     
 
 

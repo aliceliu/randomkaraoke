@@ -29,8 +29,10 @@ def get_related_song(page):
         return random.choice(['call me maybe', 'to make you feel my love', 'my heart will go on'])
     song = str(link.find('span', 'title')).split('title=')[1].replace('0xe2', '').encode('utf-8')
     i = song.find('>')
-    song = song[1:i].lower().replace('karaoke', '').replace('()','')
-    if len(song) > 20:
-        return song[:21]
+    song = song[1:i].lower()
+    for x in ('karaoke', 'instrumental', '()'):
+        song.replace(x, '')
+    if len(song) > 30:
+        song = song[:31]
     return song
     
